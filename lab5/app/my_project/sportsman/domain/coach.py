@@ -4,15 +4,13 @@ from sqlalchemy import ForeignKey
 
 class Coach(db.Model):
     __tablename__ = "coach"
-    __table_args__ = {'extend_existing': True}
-
+    __table_args__ = {'extend_existing': True}  # <- це дозволяє повторне визначення таблиці
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(45), nullable=False)
     surname = db.Column(db.String(45), nullable=False)
     coach_specialization_id = db.Column(db.Integer, ForeignKey('coach_specialization.id'), nullable=False)
     contact_id = db.Column(db.Integer, ForeignKey('coach_contact.id'), unique=True, nullable=False)
-
 
     specialization = db.relationship('CoachSpecialization', back_populates='coaches')
     contact = db.relationship('CoachesContact', back_populates='coaches')
@@ -24,4 +22,4 @@ class Coach(db.Model):
             "surname": self.surname,
             "specialization_id": self.coach_specialization_id,
             "contact_id": self.contact_id,
-        } 
+        }
