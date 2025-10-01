@@ -15,5 +15,5 @@ class CoachesContact(db.Model):
         return {
             "id": self.id,
             "phone": self.phone,
-            # "email": self.email,
+            "email": self.email,
         }
