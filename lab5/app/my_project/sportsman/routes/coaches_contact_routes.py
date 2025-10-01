@@ -31,6 +31,9 @@ def get_coaches_contact():
                   email:
                     type: string
                     example: "coach@email.com"
+                  contact_id:
+                    type: integer
+                    example: 10
     """
     return coaches_contact_controller.get_all()
 
@@ -66,6 +69,9 @@ def get_coaches_contact_by_id(coaches_contact_id):
                 email:
                   type: string
                   example: "coach@email.com"
+                contact_id:
+                  type: integer
+                  example: 10
       404:
         description: Coach contact not found
     """
@@ -88,6 +94,7 @@ def add_coaches_contact():
             required:
               - phone
               - email
+              - contact_id
             properties:
               phone:
                 type: string
@@ -95,6 +102,9 @@ def add_coaches_contact():
               email:
                 type: string
                 example: "coach@email.com"
+              contact_id:
+                type: integer
+                example: 10
     responses:
       201:
         description: Coach contact created
@@ -112,6 +122,9 @@ def add_coaches_contact():
                 email:
                   type: string
                   example: "coach@email.com"
+                contact_id:
+                  type: integer
+                  example: 10
     """
     return coaches_contact_controller.create()
 
@@ -143,6 +156,9 @@ def update_coaches_contact(coaches_contact_id):
               email:
                 type: string
                 example: "newcoach@email.com"
+              contact_id:
+                type: integer
+                example: 20
     responses:
       200:
         description: Coach contact updated
@@ -160,6 +176,9 @@ def update_coaches_contact(coaches_contact_id):
                 email:
                   type: string
                   example: "newcoach@email.com"
+                contact_id:
+                  type: integer
+                  example: 20
       404:
         description: Coach contact not found
     """
