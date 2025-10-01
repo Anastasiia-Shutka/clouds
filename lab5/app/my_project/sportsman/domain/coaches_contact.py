@@ -9,9 +9,9 @@ class CoachesContact(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     phone = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False)
-    coach_id = db.Column(db.Integer, ForeignKey('coach.id'), unique=True, nullable=False)
+    # coach_id = db.Column(db.Integer, ForeignKey('coach.id'), unique=True, nullable=False)
 
-    coaches = db.relationship('Coach', back_populates= 'contact')
+    coaches = db    .relationship('Coach', back_populates= 'contact')
 
     def to_dict(self):
         return {
