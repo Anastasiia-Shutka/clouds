@@ -9,18 +9,18 @@ coach_bp = Blueprint("coach", __name__)
 coach_controller = CoachController()
 
 
-# @coach_bp.route("/coach", methods=['GET'])
-# def get_coach():
-#     """
-#     Get all coaches
-#     ---
-#     tags:
-#       - Coach
-#     responses:
-#       200:
-#         description: List of coaches
-#     """
-#     return coach_controller.get_all()
+@coach_bp.route("/coach", methods=['GET'])
+def get_coach():
+    """
+    Get all coaches
+    ---
+    tags:
+      - Coach
+    responses:
+      200:
+        description: List of coaches
+    """
+    return coach_controller.get_all()
 
 
 @coach_bp.route("/coach/<int:coach_id>", methods=['GET'])
