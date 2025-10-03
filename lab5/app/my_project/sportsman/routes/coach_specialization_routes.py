@@ -5,18 +5,18 @@ coach_specialization_bp = Blueprint("coach_specialization", __name__)
 coach_specialization_controller = CoachSpecializationController()
 
 
-@coach_specialization_bp.route("/coach_specialization", methods=['GET'])
-def get_coach_specialization():
-    """
-    Get all coach specializations
-    ---
-    tags:
-      - Coach Specialization
-    responses:
-      200:
-        description: List of coach specializations
-    """
-    return coach_specialization_controller.get_all()
+# @coach_specialization_bp.route("/coach_specialization", methods=['GET'])
+# def get_coach_specialization():
+#     """
+#     Get all coach specializations
+#     ---
+#     tags:
+#       - Coach Specialization
+#     responses:
+#       200:
+#         description: List of coach specializations
+#     """
+#     return coach_specialization_controller.get_all()
 
 
 @coach_specialization_bp.route("/coach_specialization/<int:coach_specialization_id>", methods=['GET'])
@@ -40,24 +40,24 @@ def get_coach_specialization_by_id(coach_specialization_id):
     return coach_specialization_controller.get_by_id(coach_specialization_id)
 
 
-# @coach_specialization_bp.route("/coach_specialization/<int:coach_specialization_id>/coaches", methods=['GET'])
-# def get_coaches_by_specialization(coach_specialization_id):
-#     """
-#     Get all coaches for a given specialization
-#     ---
-#     tags:
-#       - Coach Specialization
-#     parameters:
-#       - name: coach_specialization_id
-#         in: path
-#         required: true
-#         type: integer
-#     responses:
-#       200:
-#         description: List of coaches with this specialization
-#     """
-#     coaches = coach_specialization_controller.service.get_coaches_by_specialization(coach_specialization_id)
-#     return jsonify([c.to_dict() for c in coaches])
+@coach_specialization_bp.route("/coach_specialization/<int:coach_specialization_id>/coaches", methods=['GET'])
+def get_coaches_by_specialization(coach_specialization_id):
+    """
+    Get all coaches for a given specialization
+    ---
+    tags:
+      - Coach Specialization
+    parameters:
+      - name: coach_specialization_id
+        in: path
+        required: true
+        type: integer
+    responses:
+      200:
+        description: List of coaches with this specialization
+    """
+    coaches = coach_specialization_controller.service.get_coaches_by_specialization(coach_specialization_id)
+    return jsonify([c.to_dict() for c in coaches])
 
 
 @coach_specialization_bp.route("/coach_specialization", methods=['POST'])
