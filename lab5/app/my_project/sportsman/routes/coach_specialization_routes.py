@@ -41,31 +41,31 @@ def get_coach_specialization_by_id(coach_specialization_id):
 
 
 
-@coach_specialization_bp.route("/coach_specialization", methods=['POST'])
-def add_coach_specialization():
-    """
-    Create a new coach specialization
-    ---
-    tags:
-      - Coach Specialization
-    parameters:
-      - in: body
-        name: body
-        required: true
-        schema:
-          type: object
-          properties:
-            name:
-              type: string
-          required:
-            - name
-    responses:
-      201:
-        description: Specialization created successfully
-      400:
-        description: Invalid input
-    """
-    return coach_specialization_controller.create()
+# @coach_specialization_bp.route("/coach_specialization", methods=['POST'])
+# def add_coach_specialization():
+#     """
+#     Create a new coach specialization
+#     ---
+#     tags:
+#       - Coach Specialization
+#     parameters:
+#       - in: body
+#         name: body
+#         required: true
+#         schema:
+#           type: object
+#           properties:
+#             name:
+#               type: string
+#           required:
+#             - name
+#     responses:
+#       201:
+#         description: Specialization created successfully
+#       400:
+#         description: Invalid input
+#     """
+#     return coach_specialization_controller.create()
 
 
 @coach_specialization_bp.route("/coach_specialization/<int:coach_specialization_id>", methods=['PATCH'])
