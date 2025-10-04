@@ -4,6 +4,8 @@ import os
 from my_project.database import db
 from my_project.sportsman.routes.__init__ import register_routes
 from flasgger import Swagger
+import pymysql
+pymysql.install_as_MySQLdb()
 
 def create_app():
     app = Flask(__name__)
